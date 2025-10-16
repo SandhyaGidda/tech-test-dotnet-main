@@ -115,7 +115,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
             var result = service.MakePayment(request);
 
             // Assert
-            // NOTE: In the legacy implementation, CHAPS payments fail because the AccountDataStore does not return a 'Live' account with CHAPS enabled.
+            // NOTE: In the legacy implementation, CHAPS payments fail legacy implementation returns false as AccountDataStore.GetAccount returns null.
             Assert.True(result.Success);
         }
     }
