@@ -26,7 +26,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         public void MakePayment_WhenAccountDoesNotExist_ShouldReturnFailure()
         {
             // Arrange
-            var service = new PaymentService();
+            var service = new PaymentServicePrefactor();
             var request = new MakePaymentRequest
             {
                 DebtorAccountNumber = "999", // assume not found
@@ -45,7 +45,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         public void MakePayment_WhenAccountExistsButSchemeNotAllowed_ShouldReturnFailure()
         {
             // Arrange
-            var service = new PaymentService();
+            var service = new PaymentServicePrefactor();
             var request = new MakePaymentRequest
             {
                 DebtorAccountNumber = "1",
@@ -64,7 +64,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         public void MakePayment_FasterPayments_InsufficientFunds_ShouldReturnFailure()
         {
             // Arrange
-            var service = new PaymentService();
+            var service = new PaymentServicePrefactor();
             var request = new MakePaymentRequest
             {
                 DebtorAccountNumber = "1",
@@ -83,7 +83,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         public void MakePayment_Bacs_ValidAccount_ShouldReturnSuccess()
         {
             // Arrange
-            var service = new PaymentService();
+            var service = new PaymentServicePrefactor();
             var request = new MakePaymentRequest
             {
                 DebtorAccountNumber = "1",
@@ -103,7 +103,7 @@ namespace ClearBank.DeveloperTest.Tests.Services
         public void MakePayment_Chaps_LiveAccount_ShouldReturnFailure()
         {
             // Arrange
-            var service = new PaymentService();
+            var service = new PaymentServicePrefactor();
             var request = new MakePaymentRequest
             {
                 DebtorAccountNumber = "1",
